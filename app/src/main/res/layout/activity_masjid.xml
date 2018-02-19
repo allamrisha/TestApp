@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <TextView
+        android:id="@+id/tvMasjidName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/datePicker"
+        android:layout_alignStart="@+id/selectedDateTime"
+        android:layout_marginBottom="22dp"
+        android:text="Masjid Name:"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etMasjidName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvMasjidName"
+        android:layout_alignBottom="@+id/tvMasjidName"
+        android:layout_alignParentEnd="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Masjid Name" />
+
+    <TextView
+        android:id="@+id/selectedDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="107dp"
+        android:padding="15dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/timePicker"
+        android:layout_alignTop="@+id/selectedDateTime"
+        android:background="@color/colorPrimaryDark"
+        android:text="set_date"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tvSelectedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/timePicker"
+        android:layout_alignStart="@+id/selectedDateTime"
+        android:layout_marginBottom="11dp"
+        android:padding="15dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectedDateTime"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/selectedDateTime"
+        android:background="@color/colorPrimaryDark"
+        android:text="set_time"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvLatitude"
+        android:layout_alignStart="@+id/tvSelectedTime"
+        android:text="LOCATION :"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/timePicker"
+        android:layout_below="@+id/timePicker"
+        android:layout_marginTop="53dp"
+        android:hint="latitude" />
+
+    <TextView
+        android:id="@+id/tvLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etAddress"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/tvLatitude"
+        android:hint="longitude" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvLocation"
+        android:layout_below="@+id/tvLocation"
+        android:layout_marginTop="23dp"
+        android:text="ADDRESS :"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvAddress"
+        android:layout_alignStart="@+id/tvLatitude"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <Spinner
+        android:id="@+id/spinnerAnnounce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvAnnouncemts"
+        android:layout_below="@+id/tvAnnouncemts"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:id="@+id/tvAnnouncemts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvAddress"
+        android:layout_below="@+id/tvAddress"
+        android:layout_marginTop="21dp"
+        android:text="Announcements :"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+   <!-- <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp" />-->
+
+    <Button
+         android:id="@+id/buttonAds"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_toEndOf="@+id/tvAnnouncemts"
+         android:background="@color/colorPrimary"
+         android:text="ADS"
+         android:textColor="@android:color/white" />
+
+</RelativeLayout>
