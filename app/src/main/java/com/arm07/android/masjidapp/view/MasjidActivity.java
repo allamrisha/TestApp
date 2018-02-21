@@ -107,18 +107,14 @@ public class MasjidActivity extends AppCompatActivity implements TimePickerSelec
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
-
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(60 * 1000);
-        locationRequest.setFastestInterval(15 * 1000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        googleApiClient.connect();
+        if(this.googleApiClient != null) {
+            googleApiClient.connect();
+        }
     }
 
     @Override
@@ -146,17 +142,26 @@ public class MasjidActivity extends AppCompatActivity implements TimePickerSelec
     @Override
     protected void onPause() {
         super.onPause();
-        LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
+        if(this.googleApiClient != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        googleApiClient.disconnect();
+        if(this.googleApiClient != null) {
+            googleApiClient.disconnect();
+        }
     }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        locationRequest = new LocationRequest();
+        locationRequest.setInterval(60 * 1000);
+        locationRequest.setFastestInterval(15 * 1000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
         requestLocationUpdates();
     }
 
@@ -178,7 +183,6 @@ public class MasjidActivity extends AppCompatActivity implements TimePickerSelec
         latitudeText.setText("Latitude : " + String.valueOf(myLatitude));
         longitudeText.setText("Longitude : " + String.valueOf(myLongitude));
     }
-
 
     private void initViews() {
         mSelectedDateOrTimeTextView = findViewById(R.id.selectedDateTime);
